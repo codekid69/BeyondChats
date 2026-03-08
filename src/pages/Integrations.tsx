@@ -29,7 +29,7 @@ export default function Integrations() {
       queryClient.invalidateQueries({ queryKey: ['emails'] })
       queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
       toast.success('Sync complete!', {
-        description: `Successfully synced ${syncStatus?.synced_count ?? 0} emails.`,
+        description: syncStatus?.message || `Successfully synced ${syncStatus?.synced_count ?? 0} emails.`,
       })
       setIsSyncModalOpen(false)
     } else if (status === 'error') {
