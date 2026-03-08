@@ -52,7 +52,7 @@ export default function ConversationPanel({ threadId, subject, onBack }: Convers
   }
 
   return (
-    <div className="h-full flex flex-col bg-background">
+    <div className="h-full flex flex-col bg-background min-h-0">
       {/* Header */}
       <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 border-b border-border">
         <button
@@ -73,7 +73,7 @@ export default function ConversationPanel({ threadId, subject, onBack }: Convers
       {emails && <AISummary emails={emails} />}
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto overflow-x-hidden">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
         <div className="p-3 sm:p-4 space-y-6">
           {emails?.map((email, index) => {
             const senderName = email.sender.split('<')[0].trim()
@@ -112,15 +112,17 @@ export default function ConversationPanel({ threadId, subject, onBack }: Convers
                 </div>
 
                 {/* Message body */}
-                <div className="pl-[52px]">
-                  <div
-                    className="prose prose-sm prose-invert max-w-none text-foreground [&_a]:text-primary [&_a]:no-underline [&_a:hover]:underline overflow-x-auto break-words"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(email.body_html || email.body_text, {
-                        USE_PROFILES: { html: true },
-                      }),
-                    }}
-                  />
+                <div className="pl-0 sm:pl-[52px]">
+                  <div className="overflow-x-auto max-w-full">
+                    <div
+                      className="prose prose-sm prose-invert max-w-none text-foreground [&_a]:text-primary [&_a]:no-underline [&_a:hover]:underline break-words [&_table]:max-w-full [&_table]:text-xs [&_img]:max-w-full [&_img]:h-auto [&_pre]:max-w-full [&_pre]:overflow-x-auto"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(email.body_html || email.body_text, {
+                          USE_PROFILES: { html: true },
+                        }),
+                      }}
+                    />
+                  </div>
 
                   {/* Attachments */}
                   {email.has_attachment && email.attachments?.length > 0 && (

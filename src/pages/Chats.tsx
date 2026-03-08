@@ -99,7 +99,7 @@ export default function Chats() {
 
       {/* Conversation panel */}
       <div
-        className={`flex-1 min-w-0 ${selectedThread ? 'flex flex-col' : 'hidden md:flex flex-col'}`}
+        className={`flex-1 min-w-0 min-h-0 ${selectedThread ? 'flex flex-col' : 'hidden md:flex flex-col'}`}
       >
         {selectedThread ? (
           <ConversationPanel

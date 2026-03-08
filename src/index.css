@@ -164,3 +164,33 @@
 .skeleton {
   @apply bg-secondary/50 rounded-lg animate-pulse;
 }
+
+/* Hide scrollbar utility */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Email HTML containment for mobile */
+@media (max-width: 640px) {
+  .prose * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.75rem;
+  }
+  .prose img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .prose td,
+  .prose th {
+    word-break: break-word;
+  }
+}
