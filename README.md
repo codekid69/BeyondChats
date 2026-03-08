@@ -1,6 +1,6 @@
 # BeyondChats — Frontend UI
 
-A highly responsive, chat-like email client interface designed for seamless Gmail integration. Built with modern web standards, it delivers a polished, premium user experience with real-time UI updates, optimistic rendering, and a glassmorphic aesthetic.
+Built with modern web standards, it delivers a polished, premium user experience with real-time UI updates, optimistic rendering.
 
 ## 🚀 Tech Stack
 
@@ -47,3 +47,4 @@ The frontend is structured to enforce a strict separation of concerns, maintaini
 - `npm run dev`: Bootstraps the local Vite development server with Hot Module Replacement (HMR).
 - `npm run build`: Type-checks the application (`tsc`) and generates a highly optimized, minified production bundle.
 - `npm run preview`: Spins up a local web server to locally preview the production build generated in `/dist`.
+
