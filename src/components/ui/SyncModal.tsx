@@ -175,20 +175,28 @@ export default function SyncModal({ isOpen, onClose, isSyncing, synced_count = 0
 
         {/* Footer */}
         {!isSyncing && (
-          <div className="flex items-center gap-3 px-5 py-4 sm:p-6 border-t border-border">
-            <button
-              onClick={onClose}
-              className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl text-sm sm:text-base font-medium transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleSync}
-              disabled={syncEmails.isPending}
-              className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl text-sm sm:text-base font-medium transition-colors disabled:opacity-50"
-            >
-              {syncEmails.isPending ? 'Starting…' : `Sync ${selectedDays}d`}
-            </button>
+          <div className="px-5 py-4 sm:p-6 border-t border-border space-y-4">
+            <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-600 dark:text-yellow-500 text-xs sm:text-sm flex gap-3 items-start">
+              <span className="text-base leading-none mt-0.5">💡</span>
+              <p>
+                <strong>Free Tier Optimizations:</strong> To preserve performance, syncing fetches a limited sample of emails from the selected range.
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onClose}
+                className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl text-sm sm:text-base font-medium transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSync}
+                disabled={syncEmails.isPending}
+                className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl text-sm sm:text-base font-medium transition-colors disabled:opacity-50"
+              >
+                {syncEmails.isPending ? 'Starting…' : `Sync ${selectedDays}d`}
+              </button>
+            </div>
           </div>
         )}
 
