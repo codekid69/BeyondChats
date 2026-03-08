@@ -88,7 +88,7 @@ export default function Chats() {
     <div className="h-[calc(100dvh-8rem)] md:h-[calc(100vh-8rem)] min-h-[400px] flex flex-col md:flex-row rounded-xl overflow-hidden border border-border bg-card">
       {/* Thread list - hidden on mobile when thread selected */}
       <div
-        className={`w-full md:w-[320px] lg:w-[360px] flex-shrink-0 border-r border-border ${selectedThread ? 'hidden md:flex flex-col' : 'flex flex-col'
+        className={`w-full md:w-[320px] lg:w-[360px] flex-shrink-0 border-r border-border h-full min-h-0 ${selectedThread ? 'hidden md:flex flex-col' : 'flex flex-col'
           }`}
       >
         <ThreadList
